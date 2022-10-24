@@ -32,6 +32,8 @@
             this.lblDispositivo1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblTemperatura = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.dataAlertas = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.btnborrar = new System.Windows.Forms.Button();
@@ -53,14 +55,14 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblHistRespuesta = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblHistFecha = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblHistTemperatura = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.lblDispositivo = new System.Windows.Forms.Label();
+            this.lblHistDispositivo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -71,8 +73,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.lblTemperatura = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lblUbicacion = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataAlertas)).BeginInit();
@@ -90,7 +92,7 @@
             // 
             this.lblDispositivo1.AutoSize = true;
             this.lblDispositivo1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDispositivo1.Location = new System.Drawing.Point(102, 277);
+            this.lblDispositivo1.Location = new System.Drawing.Point(34, 277);
             this.lblDispositivo1.Name = "lblDispositivo1";
             this.lblDispositivo1.Size = new System.Drawing.Size(155, 37);
             this.lblDispositivo1.TabIndex = 1;
@@ -131,6 +133,26 @@
             this.tabPage1.Text = "Inicio";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // lblTemperatura
+            // 
+            this.lblTemperatura.AutoSize = true;
+            this.lblTemperatura.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTemperatura.Location = new System.Drawing.Point(988, 277);
+            this.lblTemperatura.Name = "lblTemperatura";
+            this.lblTemperatura.Size = new System.Drawing.Size(171, 37);
+            this.lblTemperatura.TabIndex = 18;
+            this.lblTemperatura.Text = "______________";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label18.Location = new System.Drawing.Point(814, 277);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(171, 37);
+            this.label18.TabIndex = 17;
+            this.label18.Text = "Temperatura:";
+            // 
             // dataAlertas
             // 
             this.dataAlertas.AllowUserToAddRows = false;
@@ -159,7 +181,7 @@
             // 
             // btnborrar
             // 
-            this.btnborrar.Location = new System.Drawing.Point(672, 543);
+            this.btnborrar.Location = new System.Drawing.Point(239, 543);
             this.btnborrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnborrar.Name = "btnborrar";
             this.btnborrar.Size = new System.Drawing.Size(149, 61);
@@ -170,7 +192,7 @@
             // 
             // btnactivar
             // 
-            this.btnactivar.Location = new System.Drawing.Point(672, 474);
+            this.btnactivar.Location = new System.Drawing.Point(54, 543);
             this.btnactivar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnactivar.Name = "btnactivar";
             this.btnactivar.Size = new System.Drawing.Size(149, 61);
@@ -183,7 +205,7 @@
             // 
             this.lblArea2.AutoSize = true;
             this.lblArea2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblArea2.Location = new System.Drawing.Point(263, 348);
+            this.lblArea2.Location = new System.Drawing.Point(412, 277);
             this.lblArea2.Name = "lblArea2";
             this.lblArea2.Size = new System.Drawing.Size(171, 37);
             this.lblArea2.TabIndex = 9;
@@ -193,18 +215,18 @@
             // 
             this.lblDispositivo2.AutoSize = true;
             this.lblDispositivo2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDispositivo2.Location = new System.Drawing.Point(263, 277);
+            this.lblDispositivo2.Location = new System.Drawing.Point(195, 277);
             this.lblDispositivo2.Name = "lblDispositivo2";
-            this.lblDispositivo2.Size = new System.Drawing.Size(171, 37);
+            this.lblDispositivo2.Size = new System.Drawing.Size(127, 37);
             this.lblDispositivo2.TabIndex = 8;
-            this.lblDispositivo2.Text = "______________";
+            this.lblDispositivo2.Text = "__________";
             // 
             // pctCalor
             // 
             this.pctCalor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pctCalor.Location = new System.Drawing.Point(321, 479);
+            this.pctCalor.Location = new System.Drawing.Point(814, 520);
             this.pctCalor.Name = "pctCalor";
-            this.pctCalor.Size = new System.Drawing.Size(125, 125);
+            this.pctCalor.Size = new System.Drawing.Size(100, 100);
             this.pctCalor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctCalor.TabIndex = 7;
             this.pctCalor.TabStop = false;
@@ -212,9 +234,9 @@
             // pctHumo
             // 
             this.pctHumo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pctHumo.Location = new System.Drawing.Point(190, 479);
+            this.pctHumo.Location = new System.Drawing.Point(654, 520);
             this.pctHumo.Name = "pctHumo";
-            this.pctHumo.Size = new System.Drawing.Size(125, 125);
+            this.pctHumo.Size = new System.Drawing.Size(100, 100);
             this.pctHumo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctHumo.TabIndex = 6;
             this.pctHumo.TabStop = false;
@@ -222,9 +244,9 @@
             // pctFuego
             // 
             this.pctFuego.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pctFuego.Location = new System.Drawing.Point(59, 479);
+            this.pctFuego.Location = new System.Drawing.Point(487, 520);
             this.pctFuego.Name = "pctFuego";
-            this.pctFuego.Size = new System.Drawing.Size(125, 125);
+            this.pctFuego.Size = new System.Drawing.Size(100, 100);
             this.pctFuego.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctFuego.TabIndex = 5;
             this.pctFuego.TabStop = false;
@@ -233,7 +255,7 @@
             // 
             this.lblAlarma1.AutoSize = true;
             this.lblAlarma1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblAlarma1.Location = new System.Drawing.Point(59, 426);
+            this.lblAlarma1.Location = new System.Drawing.Point(610, 454);
             this.lblAlarma1.Name = "lblAlarma1";
             this.lblAlarma1.Size = new System.Drawing.Size(198, 37);
             this.lblAlarma1.TabIndex = 4;
@@ -243,7 +265,7 @@
             // 
             this.lblArea1.AutoSize = true;
             this.lblArea1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblArea1.Location = new System.Drawing.Point(168, 348);
+            this.lblArea1.Location = new System.Drawing.Point(329, 277);
             this.lblArea1.Name = "lblArea1";
             this.lblArea1.Size = new System.Drawing.Size(77, 37);
             this.lblArea1.TabIndex = 3;
@@ -252,15 +274,17 @@
             // pctAlerta
             // 
             this.pctAlerta.Image = ((System.Drawing.Image)(resources.GetObject("pctAlerta.Image")));
-            this.pctAlerta.Location = new System.Drawing.Point(827, 270);
+            this.pctAlerta.Location = new System.Drawing.Point(951, 415);
             this.pctAlerta.Name = "pctAlerta";
-            this.pctAlerta.Size = new System.Drawing.Size(330, 334);
+            this.pctAlerta.Size = new System.Drawing.Size(228, 230);
             this.pctAlerta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctAlerta.TabIndex = 2;
             this.pctAlerta.TabStop = false;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblUbicacion);
+            this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.btnBuscarDispositivos);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.pctminihumo);
@@ -269,14 +293,14 @@
             this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Controls.Add(this.lblHistRespuesta);
             this.tabPage2.Controls.Add(this.label14);
-            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.lblHistFecha);
             this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.lblHistTemperatura);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.lblDispositivo);
+            this.tabPage2.Controls.Add(this.lblHistDispositivo);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label4);
@@ -298,16 +322,19 @@
             // 
             // btnBuscarDispositivos
             // 
+            this.btnBuscarDispositivos.Enabled = false;
             this.btnBuscarDispositivos.Location = new System.Drawing.Point(55, 553);
             this.btnBuscarDispositivos.Name = "btnBuscarDispositivos";
             this.btnBuscarDispositivos.Size = new System.Drawing.Size(171, 57);
             this.btnBuscarDispositivos.TabIndex = 27;
             this.btnBuscarDispositivos.Text = "Buscar Dispositvos";
             this.btnBuscarDispositivos.UseVisualStyleBackColor = true;
+            this.btnBuscarDispositivos.Click += new System.EventHandler(this.btnBuscarDispositivos_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Enabled = false;
             this.label9.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label9.Location = new System.Drawing.Point(55, 43);
             this.label9.Name = "label9";
@@ -317,7 +344,8 @@
             // 
             // pctminihumo
             // 
-            this.pctminihumo.Location = new System.Drawing.Point(1040, 267);
+            this.pctminihumo.Enabled = false;
+            this.pctminihumo.Location = new System.Drawing.Point(962, 227);
             this.pctminihumo.Name = "pctminihumo";
             this.pctminihumo.Size = new System.Drawing.Size(50, 51);
             this.pctminihumo.TabIndex = 25;
@@ -325,7 +353,8 @@
             // 
             // pctminicalor
             // 
-            this.pctminicalor.Location = new System.Drawing.Point(975, 267);
+            this.pctminicalor.Enabled = false;
+            this.pctminicalor.Location = new System.Drawing.Point(897, 227);
             this.pctminicalor.Name = "pctminicalor";
             this.pctminicalor.Size = new System.Drawing.Size(50, 51);
             this.pctminicalor.TabIndex = 24;
@@ -333,7 +362,8 @@
             // 
             // pctminifuego
             // 
-            this.pctminifuego.Location = new System.Drawing.Point(907, 267);
+            this.pctminifuego.Enabled = false;
+            this.pctminifuego.Location = new System.Drawing.Point(829, 227);
             this.pctminifuego.Name = "pctminifuego";
             this.pctminifuego.Size = new System.Drawing.Size(50, 51);
             this.pctminifuego.TabIndex = 23;
@@ -342,6 +372,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
+            this.label16.Enabled = false;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label16.Location = new System.Drawing.Point(55, 125);
             this.label16.Name = "label16";
@@ -351,6 +382,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(55, 159);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(151, 27);
@@ -358,6 +390,7 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(55, 456);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(171, 57);
@@ -365,64 +398,70 @@
             this.button1.Text = "Crear Dispositivo";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // label15
+            // lblHistRespuesta
             // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.White;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(907, 577);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(194, 32);
-            this.label15.TabIndex = 19;
-            this.label15.Text = "__________________";
+            this.lblHistRespuesta.AutoSize = true;
+            this.lblHistRespuesta.BackColor = System.Drawing.Color.White;
+            this.lblHistRespuesta.Enabled = false;
+            this.lblHistRespuesta.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblHistRespuesta.Location = new System.Drawing.Point(829, 564);
+            this.lblHistRespuesta.Name = "lblHistRespuesta";
+            this.lblHistRespuesta.Size = new System.Drawing.Size(194, 32);
+            this.lblHistRespuesta.TabIndex = 19;
+            this.lblHistRespuesta.Text = "__________________";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.Enabled = false;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(899, 544);
+            this.label14.Location = new System.Drawing.Point(829, 532);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(121, 32);
             this.label14.TabIndex = 18;
             this.label14.Text = "Respuesta";
             // 
-            // label13
+            // lblHistFecha
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.White;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(907, 480);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(194, 32);
-            this.label13.TabIndex = 17;
-            this.label13.Text = "__________________";
+            this.lblHistFecha.AutoSize = true;
+            this.lblHistFecha.BackColor = System.Drawing.Color.White;
+            this.lblHistFecha.Enabled = false;
+            this.lblHistFecha.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblHistFecha.Location = new System.Drawing.Point(829, 493);
+            this.lblHistFecha.Name = "lblHistFecha";
+            this.lblHistFecha.Size = new System.Drawing.Size(194, 32);
+            this.lblHistFecha.TabIndex = 17;
+            this.lblHistFecha.Text = "__________________";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.Enabled = false;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(907, 447);
+            this.label12.Location = new System.Drawing.Point(829, 460);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 32);
             this.label12.TabIndex = 16;
             this.label12.Text = "Fecha";
             // 
-            // label11
+            // lblHistTemperatura
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(907, 385);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(194, 32);
-            this.label11.TabIndex = 15;
-            this.label11.Text = "__________________";
+            this.lblHistTemperatura.AutoSize = true;
+            this.lblHistTemperatura.BackColor = System.Drawing.Color.White;
+            this.lblHistTemperatura.Enabled = false;
+            this.lblHistTemperatura.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblHistTemperatura.Location = new System.Drawing.Point(829, 419);
+            this.lblHistTemperatura.Name = "lblHistTemperatura";
+            this.lblHistTemperatura.Size = new System.Drawing.Size(194, 32);
+            this.lblHistTemperatura.TabIndex = 15;
+            this.lblHistTemperatura.Text = "__________________";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Enabled = false;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(907, 352);
+            this.label10.Location = new System.Drawing.Point(829, 386);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(148, 32);
             this.label10.TabIndex = 14;
@@ -431,29 +470,32 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Enabled = false;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(907, 231);
+            this.label8.Location = new System.Drawing.Point(829, 191);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(164, 32);
             this.label8.TabIndex = 12;
             this.label8.Text = "Tipo de Alerta";
             // 
-            // lblDispositivo
+            // lblHistDispositivo
             // 
-            this.lblDispositivo.AutoSize = true;
-            this.lblDispositivo.BackColor = System.Drawing.Color.White;
-            this.lblDispositivo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDispositivo.Location = new System.Drawing.Point(899, 159);
-            this.lblDispositivo.Name = "lblDispositivo";
-            this.lblDispositivo.Size = new System.Drawing.Size(194, 32);
-            this.lblDispositivo.TabIndex = 11;
-            this.lblDispositivo.Text = "__________________";
+            this.lblHistDispositivo.AutoSize = true;
+            this.lblHistDispositivo.BackColor = System.Drawing.Color.White;
+            this.lblHistDispositivo.Enabled = false;
+            this.lblHistDispositivo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblHistDispositivo.Location = new System.Drawing.Point(829, 159);
+            this.lblHistDispositivo.Name = "lblHistDispositivo";
+            this.lblHistDispositivo.Size = new System.Drawing.Size(194, 32);
+            this.lblHistDispositivo.TabIndex = 11;
+            this.lblHistDispositivo.Text = "__________________";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Enabled = false;
             this.label6.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(907, 43);
+            this.label6.Location = new System.Drawing.Point(837, 43);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 32);
             this.label6.TabIndex = 10;
@@ -462,8 +504,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Enabled = false;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(899, 125);
+            this.label5.Location = new System.Drawing.Point(829, 125);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(131, 32);
             this.label5.TabIndex = 9;
@@ -472,8 +515,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Enabled = false;
             this.label4.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(643, 43);
+            this.label4.Location = new System.Drawing.Point(558, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(112, 32);
             this.label4.TabIndex = 8;
@@ -481,15 +525,17 @@
             // 
             // listBox2
             // 
+            this.listBox2.Enabled = false;
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 20;
-            this.listBox2.Location = new System.Drawing.Point(643, 125);
+            this.listBox2.Location = new System.Drawing.Point(558, 126);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(210, 484);
             this.listBox2.TabIndex = 7;
             // 
             // comboBox1
             // 
+            this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(55, 267);
             this.comboBox1.Name = "comboBox1";
@@ -499,8 +545,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Enabled = false;
             this.label3.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(334, 43);
+            this.label3.Location = new System.Drawing.Point(284, 43);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(160, 32);
             this.label3.TabIndex = 5;
@@ -510,6 +557,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Enabled = false;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(55, 231);
             this.label2.Name = "label2";
@@ -520,6 +568,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(55, 352);
             this.label1.Name = "label1";
@@ -529,6 +578,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.Enabled = false;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(55, 392);
             this.comboBox2.Name = "comboBox2";
@@ -537,32 +587,36 @@
             // 
             // listBox1
             // 
+            this.listBox1.Enabled = false;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(334, 125);
+            this.listBox1.Location = new System.Drawing.Point(284, 126);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(210, 484);
             this.listBox1.TabIndex = 0;
             // 
-            // lblTemperatura
+            // lblUbicacion
             // 
-            this.lblTemperatura.AutoSize = true;
-            this.lblTemperatura.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTemperatura.Location = new System.Drawing.Point(650, 277);
-            this.lblTemperatura.Name = "lblTemperatura";
-            this.lblTemperatura.Size = new System.Drawing.Size(171, 37);
-            this.lblTemperatura.TabIndex = 18;
-            this.lblTemperatura.Text = "______________";
+            this.lblUbicacion.AutoSize = true;
+            this.lblUbicacion.BackColor = System.Drawing.Color.White;
+            this.lblUbicacion.Enabled = false;
+            this.lblUbicacion.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblUbicacion.Location = new System.Drawing.Point(829, 348);
+            this.lblUbicacion.Name = "lblUbicacion";
+            this.lblUbicacion.Size = new System.Drawing.Size(194, 32);
+            this.lblUbicacion.TabIndex = 29;
+            this.lblUbicacion.Text = "__________________";
             // 
-            // label18
+            // label19
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(489, 277);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(171, 37);
-            this.label18.TabIndex = 17;
-            this.label18.Text = "Temperatura:";
+            this.label19.AutoSize = true;
+            this.label19.Enabled = false;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label19.Location = new System.Drawing.Point(829, 314);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(118, 32);
+            this.label19.TabIndex = 28;
+            this.label19.Text = "Ubicacion";
             // 
             // Home
             // 
@@ -570,8 +624,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1213, 697);
             this.Controls.Add(this.tabControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
             this.Name = "Home";
             this.Text = "FireWatcher";
             this.Load += new System.EventHandler(this.Home_Load);
@@ -616,14 +670,14 @@
         private Label label16;
         private TextBox textBox1;
         private Button button1;
-        private Label label15;
+        private Label lblHistRespuesta;
         private Label label14;
-        private Label label13;
+        private Label lblHistFecha;
         private Label label12;
-        private Label label11;
+        private Label lblHistTemperatura;
         private Label label10;
         private Label label8;
-        private Label lblDispositivo;
+        private Label lblHistDispositivo;
         private Label label6;
         private Label label5;
         private Label label4;
@@ -638,5 +692,7 @@
         private Button btnBuscarDispositivos;
         private Label lblTemperatura;
         private Label label18;
+        private Label lblUbicacion;
+        private Label label19;
     }
 }

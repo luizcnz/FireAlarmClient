@@ -25,4 +25,16 @@ namespace FireAlarmClient.Models
         public int id { get; set; }
         public DateTime? fecha_respuesta { get; set; }
     }
+
+    internal class listaAlertas
+    {
+        public int id { get; set; }
+        public string Codigo { get; set; }
+        public bool Fuego { get; set; }
+        public bool Humo { get; set; }
+        public bool Calor { get; set; }
+        public int Temperatura { get; set; }
+        public string Ubicacion { get; set; }
+        public DateTime? Creacion { get; set; }
+    }
 }
