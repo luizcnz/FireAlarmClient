@@ -46,15 +46,16 @@
             this.lblAlarma1 = new System.Windows.Forms.Label();
             this.lblArea1 = new System.Windows.Forms.Label();
             this.pctAlerta = new System.Windows.Forms.PictureBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnBuscarDispositivos = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnCargar = new System.Windows.Forms.Button();
+            this.checkBoxActivo = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblHistUbicacion = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.pctminihumo = new System.Windows.Forms.PictureBox();
             this.pctminicalor = new System.Windows.Forms.PictureBox();
             this.pctminifuego = new System.Windows.Forms.PictureBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblHistRespuesta = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lblHistFecha = new System.Windows.Forms.Label();
@@ -63,18 +64,18 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblHistDispositivo = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.dataHistorial = new System.Windows.Forms.DataGridView();
+            this.dataDispositivos = new System.Windows.Forms.DataGridView();
+            this.btnBuscarDispositivos = new System.Windows.Forms.Button();
+            this.lblAccion = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtCodgo = new System.Windows.Forms.TextBox();
+            this.btnCrear = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cBoxUbicacion = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.lblUbicacion = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataAlertas)).BeginInit();
@@ -82,10 +83,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctHumo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctFuego)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctAlerta)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctminihumo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctminicalor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctminifuego)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataHistorial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDispositivos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDispositivo1
@@ -101,12 +105,13 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(10, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1193, 684);
             this.tabControl1.TabIndex = 2;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.FillCbox);
             // 
             // tabPage1
             // 
@@ -281,342 +286,340 @@
             this.pctAlerta.TabIndex = 2;
             this.pctAlerta.TabStop = false;
             // 
-            // tabPage2
+            // tabPage3
             // 
-            this.tabPage2.Controls.Add(this.lblUbicacion);
-            this.tabPage2.Controls.Add(this.label19);
-            this.tabPage2.Controls.Add(this.btnBuscarDispositivos);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.pctminihumo);
-            this.tabPage2.Controls.Add(this.pctminicalor);
-            this.tabPage2.Controls.Add(this.pctminifuego);
-            this.tabPage2.Controls.Add(this.label16);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.lblHistRespuesta);
-            this.tabPage2.Controls.Add(this.label14);
-            this.tabPage2.Controls.Add(this.lblHistFecha);
-            this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.lblHistTemperatura);
-            this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.lblHistDispositivo);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.listBox2);
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.comboBox2);
-            this.tabPage2.Controls.Add(this.listBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1185, 651);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Administrar";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            this.tabPage3.Controls.Add(this.btnLimpiar);
+            this.tabPage3.Controls.Add(this.btnCargar);
+            this.tabPage3.Controls.Add(this.checkBoxActivo);
+            this.tabPage3.Controls.Add(this.groupBox1);
+            this.tabPage3.Controls.Add(this.dataHistorial);
+            this.tabPage3.Controls.Add(this.dataDispositivos);
+            this.tabPage3.Controls.Add(this.btnBuscarDispositivos);
+            this.tabPage3.Controls.Add(this.lblAccion);
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Controls.Add(this.txtCodgo);
+            this.tabPage3.Controls.Add(this.btnCrear);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.cBoxUbicacion);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1185, 651);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Dispositivos";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // btnBuscarDispositivos
+            // btnLimpiar
             // 
-            this.btnBuscarDispositivos.Enabled = false;
-            this.btnBuscarDispositivos.Location = new System.Drawing.Point(55, 553);
-            this.btnBuscarDispositivos.Name = "btnBuscarDispositivos";
-            this.btnBuscarDispositivos.Size = new System.Drawing.Size(171, 57);
-            this.btnBuscarDispositivos.TabIndex = 27;
-            this.btnBuscarDispositivos.Text = "Buscar Dispositvos";
-            this.btnBuscarDispositivos.UseVisualStyleBackColor = true;
-            this.btnBuscarDispositivos.Click += new System.EventHandler(this.btnBuscarDispositivos_Click);
+            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLimpiar.Location = new System.Drawing.Point(31, 552);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(287, 57);
+            this.btnLimpiar.TabIndex = 64;
+            this.btnLimpiar.Text = "Limpiar Todo";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // label9
+            // btnCargar
             // 
-            this.label9.AutoSize = true;
-            this.label9.Enabled = false;
-            this.label9.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(55, 43);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(167, 32);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Crear Nuevo";
+            this.btnCargar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCargar.Location = new System.Drawing.Point(191, 482);
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(127, 57);
+            this.btnCargar.TabIndex = 63;
+            this.btnCargar.Text = "Cargar Dispositivo";
+            this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
+            // 
+            // checkBoxActivo
+            // 
+            this.checkBoxActivo.AutoSize = true;
+            this.checkBoxActivo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBoxActivo.Location = new System.Drawing.Point(40, 287);
+            this.checkBoxActivo.Name = "checkBoxActivo";
+            this.checkBoxActivo.Size = new System.Drawing.Size(162, 36);
+            this.checkBoxActivo.TabIndex = 61;
+            this.checkBoxActivo.Text = "Esta Activo?";
+            this.checkBoxActivo.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblHistUbicacion);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.pctminihumo);
+            this.groupBox1.Controls.Add(this.pctminicalor);
+            this.groupBox1.Controls.Add(this.pctminifuego);
+            this.groupBox1.Controls.Add(this.lblHistRespuesta);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.lblHistFecha);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.lblHistTemperatura);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.lblHistDispositivo);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Location = new System.Drawing.Point(808, 42);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(356, 567);
+            this.groupBox1.TabIndex = 60;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Detalles";
+            // 
+            // lblHistUbicacion
+            // 
+            this.lblHistUbicacion.AutoSize = true;
+            this.lblHistUbicacion.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblHistUbicacion.Location = new System.Drawing.Point(21, 279);
+            this.lblHistUbicacion.Name = "lblHistUbicacion";
+            this.lblHistUbicacion.Size = new System.Drawing.Size(194, 32);
+            this.lblHistUbicacion.TabIndex = 72;
+            this.lblHistUbicacion.Text = "__________________";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label19.Location = new System.Drawing.Point(21, 245);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(118, 32);
+            this.label19.TabIndex = 71;
+            this.label19.Text = "Ubicacion";
             // 
             // pctminihumo
             // 
-            this.pctminihumo.Enabled = false;
-            this.pctminihumo.Location = new System.Drawing.Point(962, 227);
+            this.pctminihumo.Location = new System.Drawing.Point(154, 169);
             this.pctminihumo.Name = "pctminihumo";
             this.pctminihumo.Size = new System.Drawing.Size(50, 51);
-            this.pctminihumo.TabIndex = 25;
+            this.pctminihumo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctminihumo.TabIndex = 70;
             this.pctminihumo.TabStop = false;
             // 
             // pctminicalor
             // 
-            this.pctminicalor.Enabled = false;
-            this.pctminicalor.Location = new System.Drawing.Point(897, 227);
+            this.pctminicalor.Location = new System.Drawing.Point(89, 169);
             this.pctminicalor.Name = "pctminicalor";
             this.pctminicalor.Size = new System.Drawing.Size(50, 51);
-            this.pctminicalor.TabIndex = 24;
+            this.pctminicalor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctminicalor.TabIndex = 69;
             this.pctminicalor.TabStop = false;
             // 
             // pctminifuego
             // 
-            this.pctminifuego.Enabled = false;
-            this.pctminifuego.Location = new System.Drawing.Point(829, 227);
+            this.pctminifuego.Location = new System.Drawing.Point(21, 169);
             this.pctminifuego.Name = "pctminifuego";
             this.pctminifuego.Size = new System.Drawing.Size(50, 51);
-            this.pctminifuego.TabIndex = 23;
+            this.pctminifuego.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctminifuego.TabIndex = 68;
             this.pctminifuego.TabStop = false;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Enabled = false;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(55, 125);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(91, 32);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "Codigo";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(55, 159);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 27);
-            this.textBox1.TabIndex = 21;
-            // 
-            // button1
-            // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(55, 456);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 57);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Crear Dispositivo";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // lblHistRespuesta
             // 
             this.lblHistRespuesta.AutoSize = true;
-            this.lblHistRespuesta.BackColor = System.Drawing.Color.White;
-            this.lblHistRespuesta.Enabled = false;
             this.lblHistRespuesta.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblHistRespuesta.Location = new System.Drawing.Point(829, 564);
+            this.lblHistRespuesta.Location = new System.Drawing.Point(21, 509);
             this.lblHistRespuesta.Name = "lblHistRespuesta";
             this.lblHistRespuesta.Size = new System.Drawing.Size(194, 32);
-            this.lblHistRespuesta.TabIndex = 19;
+            this.lblHistRespuesta.TabIndex = 67;
             this.lblHistRespuesta.Text = "__________________";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Enabled = false;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(829, 532);
+            this.label14.Location = new System.Drawing.Point(21, 477);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(121, 32);
-            this.label14.TabIndex = 18;
+            this.label14.TabIndex = 66;
             this.label14.Text = "Respuesta";
             // 
             // lblHistFecha
             // 
             this.lblHistFecha.AutoSize = true;
-            this.lblHistFecha.BackColor = System.Drawing.Color.White;
-            this.lblHistFecha.Enabled = false;
             this.lblHistFecha.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblHistFecha.Location = new System.Drawing.Point(829, 493);
+            this.lblHistFecha.Location = new System.Drawing.Point(21, 424);
             this.lblHistFecha.Name = "lblHistFecha";
             this.lblHistFecha.Size = new System.Drawing.Size(194, 32);
-            this.lblHistFecha.TabIndex = 17;
+            this.lblHistFecha.TabIndex = 65;
             this.lblHistFecha.Text = "__________________";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Enabled = false;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(829, 460);
+            this.label12.Location = new System.Drawing.Point(21, 391);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 32);
-            this.label12.TabIndex = 16;
+            this.label12.TabIndex = 64;
             this.label12.Text = "Fecha";
             // 
             // lblHistTemperatura
             // 
             this.lblHistTemperatura.AutoSize = true;
-            this.lblHistTemperatura.BackColor = System.Drawing.Color.White;
-            this.lblHistTemperatura.Enabled = false;
             this.lblHistTemperatura.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblHistTemperatura.Location = new System.Drawing.Point(829, 419);
+            this.lblHistTemperatura.Location = new System.Drawing.Point(21, 350);
             this.lblHistTemperatura.Name = "lblHistTemperatura";
             this.lblHistTemperatura.Size = new System.Drawing.Size(194, 32);
-            this.lblHistTemperatura.TabIndex = 15;
+            this.lblHistTemperatura.TabIndex = 63;
             this.lblHistTemperatura.Text = "__________________";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Enabled = false;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(829, 386);
+            this.label10.Location = new System.Drawing.Point(21, 317);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(148, 32);
-            this.label10.TabIndex = 14;
+            this.label10.TabIndex = 62;
             this.label10.Text = "Temperatura";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Enabled = false;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(829, 191);
+            this.label8.Location = new System.Drawing.Point(21, 122);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(164, 32);
-            this.label8.TabIndex = 12;
+            this.label8.TabIndex = 61;
             this.label8.Text = "Tipo de Alerta";
             // 
             // lblHistDispositivo
             // 
             this.lblHistDispositivo.AutoSize = true;
-            this.lblHistDispositivo.BackColor = System.Drawing.Color.White;
-            this.lblHistDispositivo.Enabled = false;
             this.lblHistDispositivo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblHistDispositivo.Location = new System.Drawing.Point(829, 159);
+            this.lblHistDispositivo.Location = new System.Drawing.Point(21, 90);
             this.lblHistDispositivo.Name = "lblHistDispositivo";
             this.lblHistDispositivo.Size = new System.Drawing.Size(194, 32);
-            this.lblHistDispositivo.TabIndex = 11;
+            this.lblHistDispositivo.TabIndex = 60;
             this.lblHistDispositivo.Text = "__________________";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Enabled = false;
-            this.label6.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(837, 43);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(113, 32);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Detalles";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Enabled = false;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(829, 125);
+            this.label5.Location = new System.Drawing.Point(21, 56);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(131, 32);
-            this.label5.TabIndex = 9;
+            this.label5.TabIndex = 58;
             this.label5.Text = "Dispositivo";
+            // 
+            // dataHistorial
+            // 
+            this.dataHistorial.AllowUserToAddRows = false;
+            this.dataHistorial.AllowUserToDeleteRows = false;
+            this.dataHistorial.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataHistorial.Location = new System.Drawing.Point(337, 419);
+            this.dataHistorial.Name = "dataHistorial";
+            this.dataHistorial.ReadOnly = true;
+            this.dataHistorial.RowHeadersWidth = 51;
+            this.dataHistorial.RowTemplate.Height = 29;
+            this.dataHistorial.Size = new System.Drawing.Size(441, 190);
+            this.dataHistorial.TabIndex = 59;
+            this.dataHistorial.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataHistorial_CellContentClick);
+            // 
+            // dataDispositivos
+            // 
+            this.dataDispositivos.AllowUserToAddRows = false;
+            this.dataDispositivos.AllowUserToDeleteRows = false;
+            this.dataDispositivos.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataDispositivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataDispositivos.Location = new System.Drawing.Point(337, 129);
+            this.dataDispositivos.Name = "dataDispositivos";
+            this.dataDispositivos.ReadOnly = true;
+            this.dataDispositivos.RowHeadersWidth = 51;
+            this.dataDispositivos.RowTemplate.Height = 29;
+            this.dataDispositivos.Size = new System.Drawing.Size(441, 190);
+            this.dataDispositivos.TabIndex = 58;
+            this.dataDispositivos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDispositivos_CellContentClick);
+            // 
+            // btnBuscarDispositivos
+            // 
+            this.btnBuscarDispositivos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnBuscarDispositivos.Location = new System.Drawing.Point(31, 483);
+            this.btnBuscarDispositivos.Name = "btnBuscarDispositivos";
+            this.btnBuscarDispositivos.Size = new System.Drawing.Size(127, 57);
+            this.btnBuscarDispositivos.TabIndex = 55;
+            this.btnBuscarDispositivos.Text = "Buscar Dispositvos";
+            this.btnBuscarDispositivos.UseVisualStyleBackColor = true;
+            this.btnBuscarDispositivos.Click += new System.EventHandler(this.btnBuscarDispositivos_Click);
+            // 
+            // lblAccion
+            // 
+            this.lblAccion.AutoSize = true;
+            this.lblAccion.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAccion.Location = new System.Drawing.Point(40, 42);
+            this.lblAccion.Name = "lblAccion";
+            this.lblAccion.Size = new System.Drawing.Size(222, 32);
+            this.lblAccion.TabIndex = 54;
+            this.lblAccion.Text = "Crear Dispositivo";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label16.Location = new System.Drawing.Point(40, 124);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(91, 32);
+            this.label16.TabIndex = 50;
+            this.label16.Text = "Codigo";
+            // 
+            // txtCodgo
+            // 
+            this.txtCodgo.Location = new System.Drawing.Point(40, 158);
+            this.txtCodgo.Name = "txtCodgo";
+            this.txtCodgo.Size = new System.Drawing.Size(220, 27);
+            this.txtCodgo.TabIndex = 49;
+            // 
+            // btnCrear
+            // 
+            this.btnCrear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCrear.Location = new System.Drawing.Point(31, 419);
+            this.btnCrear.Name = "btnCrear";
+            this.btnCrear.Size = new System.Drawing.Size(287, 57);
+            this.btnCrear.TabIndex = 48;
+            this.btnCrear.Text = "Crear/Modificar";
+            this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Enabled = false;
             this.label4.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(558, 43);
+            this.label4.Location = new System.Drawing.Point(337, 359);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(112, 32);
-            this.label4.TabIndex = 8;
+            this.label4.TabIndex = 37;
             this.label4.Text = "Historial";
             // 
-            // listBox2
+            // cBoxUbicacion
             // 
-            this.listBox2.Enabled = false;
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 20;
-            this.listBox2.Location = new System.Drawing.Point(558, 126);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(210, 484);
-            this.listBox2.TabIndex = 7;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(55, 267);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 28);
-            this.comboBox1.TabIndex = 6;
+            this.cBoxUbicacion.FormattingEnabled = true;
+            this.cBoxUbicacion.Location = new System.Drawing.Point(40, 237);
+            this.cBoxUbicacion.Name = "cBoxUbicacion";
+            this.cBoxUbicacion.Size = new System.Drawing.Size(220, 28);
+            this.cBoxUbicacion.TabIndex = 36;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Enabled = false;
             this.label3.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(284, 43);
+            this.label3.Location = new System.Drawing.Point(337, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(160, 32);
-            this.label3.TabIndex = 5;
+            this.label3.TabIndex = 35;
             this.label3.Text = "Dispositivos";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Enabled = false;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(55, 231);
+            this.label2.Location = new System.Drawing.Point(40, 201);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 32);
-            this.label2.TabIndex = 4;
+            this.label2.TabIndex = 34;
             this.label2.Text = "Ubicacion";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Enabled = false;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(55, 352);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 32);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Estado";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Enabled = false;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(55, 392);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(151, 28);
-            this.comboBox2.TabIndex = 2;
-            // 
-            // listBox1
-            // 
-            this.listBox1.Enabled = false;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(284, 126);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(210, 484);
-            this.listBox1.TabIndex = 0;
-            // 
-            // lblUbicacion
-            // 
-            this.lblUbicacion.AutoSize = true;
-            this.lblUbicacion.BackColor = System.Drawing.Color.White;
-            this.lblUbicacion.Enabled = false;
-            this.lblUbicacion.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblUbicacion.Location = new System.Drawing.Point(829, 348);
-            this.lblUbicacion.Name = "lblUbicacion";
-            this.lblUbicacion.Size = new System.Drawing.Size(194, 32);
-            this.lblUbicacion.TabIndex = 29;
-            this.lblUbicacion.Text = "__________________";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Enabled = false;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label19.Location = new System.Drawing.Point(829, 314);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(118, 32);
-            this.label19.TabIndex = 28;
-            this.label19.Text = "Ubicacion";
             // 
             // Home
             // 
@@ -638,11 +641,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctHumo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctFuego)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctAlerta)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctminihumo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctminicalor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctminifuego)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataHistorial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDispositivos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -661,15 +668,28 @@
         private Label lblAlarma1;
         private Label lblArea1;
         private PictureBox pctAlerta;
-        private TabPage tabPage2;
-        private ComboBox comboBox2;
-        private ListBox listBox1;
+        private Label label7;
+        private DataGridView dataAlertas;
+        private Label lblTemperatura;
+        private Label label18;
+        private TabPage tabPage3;
+        private Button btnBuscarDispositivos;
+        private Label lblAccion;
+        private Label label16;
+        private TextBox txtCodgo;
+        private Button btnCrear;
+        private Label label4;
+        private ComboBox cBoxUbicacion;
         private Label label3;
         private Label label2;
-        private Label label1;
-        private Label label16;
-        private TextBox textBox1;
-        private Button button1;
+        private DataGridView dataHistorial;
+        private DataGridView dataDispositivos;
+        private GroupBox groupBox1;
+        private Label lblHistUbicacion;
+        private Label label19;
+        private PictureBox pctminihumo;
+        private PictureBox pctminicalor;
+        private PictureBox pctminifuego;
         private Label lblHistRespuesta;
         private Label label14;
         private Label lblHistFecha;
@@ -678,21 +698,9 @@
         private Label label10;
         private Label label8;
         private Label lblHistDispositivo;
-        private Label label6;
         private Label label5;
-        private Label label4;
-        private ListBox listBox2;
-        private ComboBox comboBox1;
-        private PictureBox pctminihumo;
-        private PictureBox pctminicalor;
-        private PictureBox pctminifuego;
-        private Label label7;
-        private DataGridView dataAlertas;
-        private Label label9;
-        private Button btnBuscarDispositivos;
-        private Label lblTemperatura;
-        private Label label18;
-        private Label lblUbicacion;
-        private Label label19;
+        private CheckBox checkBoxActivo;
+        private Button btnCargar;
+        private Button btnLimpiar;
     }
 }

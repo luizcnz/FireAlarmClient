@@ -36,5 +36,6 @@ namespace FireAlarmClient.Models
         public int Temperatura { get; set; }
         public string Ubicacion { get; set; }
         public DateTime? Creacion { get; set; }
+        public DateTime? Respuesta { get; set; }
     }
 }
