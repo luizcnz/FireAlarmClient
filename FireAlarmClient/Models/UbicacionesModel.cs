@@ -10,5 +10,18 @@ namespace FireAlarmClient.Models
     {
         public int id { get; set; }
         public string ubicacion { get; set; }
+        public bool estado { get; set; }
+    }
+
+    internal class CrearUbicacion
+    {
+        public string ubicacion { get; set; }
+        public bool estado { get; set; }
+    }
+    internal class ActualizarUbicacion
+    {
+        public int id { get; set; }
+        public string ubicacion { get; set; }
+        public bool estado { get; set; }
     }
 }

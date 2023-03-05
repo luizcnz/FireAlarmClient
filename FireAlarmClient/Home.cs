@@ -1,11 +1,8 @@
 using FireAlarmClient.Models;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Drawing;
 using System.Media;
 using System.Net;
 using System.Net.Http.Json;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace FireAlarmClient
 {
@@ -16,7 +13,7 @@ namespace FireAlarmClient
         public static string mediaFolder = Directory.GetParent(workingDirectory).Parent.Parent.FullName + @"\Media\";
         static HttpClient client = new HttpClient();
         SoundPlayer sonidoAlerta = new SoundPlayer(mediaFolder + @"\alarm.wav");
-        string url = "https://localhost:5001/api/";
+        string urlServidor = "http://192.168.1.60:5094/api/";
         bool search = true;
         bool modificar = false;
         int deviceId;
@@ -61,6 +58,8 @@ namespace FireAlarmClient
                         dataAlertas.DataSource = lista; //Remover Id de la lista
                         dataAlertas.Columns["id"].Visible = false;
                         dataAlertas.Columns["Respuesta"].Visible = false;
+                        dataAlertas.Columns["Ubicacion"].Width = 200;
+                        dataAlertas.Columns["Creacion"].Width = 150;
                         idAlerta = datos.id;
                         await DatosInterfaz(datos.alerta_fuego, datos.alerta_humo, datos.alerta_calor, datos.ubicacion, datos.codigo, datos.temperatura);
                         await alertas();
@@ -72,42 +71,6 @@ namespace FireAlarmClient
             }
         }
 
-
-        public async Task<string> DatosInterfaz(bool Fuego, bool Humo, bool Calor, string Area, string Dispositivo, int Temperatura)
-        {
-            lblArea2.Text = Area;
-            lblDispositivo2.Text = Dispositivo;
-            lblTemperatura.Text = Temperatura.ToString();
-            if (Fuego == true)
-            {
-                pctFuego.Image = Image.FromFile(mediaFolder + @"\fuego.png");
-                EstadoAlerta = true;
-            }
-            else
-            {
-                pctFuego.Image = null;
-            }
-            if (Humo == true)
-            {
-                pctHumo.Image = Image.FromFile(mediaFolder + @"\humo.png");
-                EstadoAlerta = true;
-            }
-            else
-            {
-                pctHumo.Image = null;
-            }
-            if (Calor == true)
-            {
-                pctCalor.Image = Image.FromFile(mediaFolder + @"\calor.png");
-                EstadoAlerta = true;
-            }
-            else
-            {
-                pctCalor.Image = null;
-            }
-            return null;
-
-        }
 
         private async void btnborrar_Click(object sender, EventArgs e)
         {
@@ -134,57 +97,48 @@ namespace FireAlarmClient
         }
 
 
-        public async Task<string> GetHttp(string endpoint)
-        {
-            try
-            {
-                WebRequest oRequest = WebRequest.Create(url + endpoint);
-                WebResponse oResponse = oRequest.GetResponse();
-                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
-                return await sr.ReadToEndAsync();
-            }
-            catch(Exception e)
-            {
-                return null;
-            }
-            
-        }
-
-
         private void Home_Load(object sender, EventArgs e)
         {
         }
         private async void dataAlertas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow selectedRow = dataAlertas.Rows[e.RowIndex];
+            try
+            {
+                DataGridViewRow selectedRow = dataAlertas.Rows[e.RowIndex];
 
-            idAlerta = (int)Convert.ToInt64(selectedRow.Cells[0].Value.ToString());
-            string Dispositivo = selectedRow.Cells[1].Value.ToString();
-            bool Fuego = Convert.ToBoolean(selectedRow.Cells[2].Value.ToString());
-            bool Humo = Convert.ToBoolean(selectedRow.Cells[3].Value.ToString());
-            bool Calor = Convert.ToBoolean(selectedRow.Cells[4].Value.ToString());
-            int Temperatura = (int)Convert.ToInt64(selectedRow.Cells[5].Value.ToString());
-            string Area = selectedRow.Cells[6].Value.ToString();
+                idAlerta = (int)Convert.ToInt64(selectedRow.Cells[0].Value.ToString());
+                string Dispositivo = selectedRow.Cells[1].Value.ToString();
+                bool Fuego = Convert.ToBoolean(selectedRow.Cells[2].Value.ToString());
+                bool Humo = Convert.ToBoolean(selectedRow.Cells[3].Value.ToString());
+                bool Calor = Convert.ToBoolean(selectedRow.Cells[4].Value.ToString());
+                int Temperatura = (int)Convert.ToInt64(selectedRow.Cells[5].Value.ToString());
+                string Area = selectedRow.Cells[6].Value.ToString();
 
-            await DatosInterfaz(Fuego, Humo, Calor, Area, Dispositivo, Temperatura);
+                await DatosInterfaz(Fuego, Humo, Calor, Area, Dispositivo, Temperatura);
+            }
+            catch(Exception error)
+            {
+                //MessageBox.Show(error.Message);
+            }
+
         }
 
         private async Task<string> alertas()
         {
             if (EstadoAlerta == true)
             {
+                //await Task.Delay(5000);
                 while (EstadoAlerta == true)
                 {
 
-                    sonidoAlerta.Play();
                     await Task.Delay(5000);
+                    sonidoAlerta.Play();
                     pctAlerta.Image = Image.FromFile(mediaFolder + @"\alarm1.jpg");
                     await Task.Delay(5000);
-
-                    sonidoAlerta.Play();
-                    await Task.Delay(5000);
                     pctAlerta.Image = Image.FromFile(mediaFolder + @"\alarm2.jpg");
-                    await Task.Delay(5000);
+
+                    //sonidoAlerta.Play();
+                    //await Task.Delay(5000);
                 }
             }
 
@@ -219,89 +173,113 @@ namespace FireAlarmClient
 
         private async void dataDispositivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow selectedRow = dataDispositivos.Rows[e.RowIndex];
-
-            int idDevice = (int)Convert.ToInt64(selectedRow.Cells[0].Value.ToString());
-            string apiEndPoint = "Alertas/DeviceId/" + idDevice + "";
-            string history = await GetHttp(apiEndPoint);
-            List<AlertasModel> alertasModels = JsonConvert.DeserializeObject<List<AlertasModel>>(history);
-
-            List<listaAlertas> lista = new List<listaAlertas>();
-
-            if (alertasModels != null)
+            try
             {
-                foreach (AlertasModel data in alertasModels)
+                DataGridViewRow selectedRow = dataDispositivos.Rows[e.RowIndex];
+
+                int idDevice = (int)Convert.ToInt64(selectedRow.Cells[0].Value.ToString());
+                string apiEndPoint = "Alertas/DeviceId/" + idDevice + "";
+                string history = await GetHttp(apiEndPoint);
+                List<AlertasModel> alertasModels = JsonConvert.DeserializeObject<List<AlertasModel>>(history);
+
+                List<listaAlertas> lista = new List<listaAlertas>();
+
+                if (alertasModels != null)
                 {
-                    listaAlertas inf = new listaAlertas();
+                    foreach (AlertasModel data in alertasModels)
+                    {
+                        listaAlertas inf = new listaAlertas();
 
-                    inf.id = data.id;
-                    inf.Codigo = data.codigo;
-                    inf.Fuego = data.alerta_fuego;
-                    inf.Humo = data.alerta_humo;
-                    inf.Calor = data.alerta_calor;
-                    inf.Temperatura = data.temperatura;
-                    inf.Ubicacion = data.ubicacion;
-                    inf.Creacion = data.fecha_creacion;
-                    inf.Respuesta = data.fecha_respuesta;
+                        inf.id = data.id;
+                        inf.Creacion = data.fecha_creacion;
+                        inf.Respuesta = data.fecha_respuesta;
+                        inf.Codigo = data.codigo;
+                        inf.Fuego = data.alerta_fuego;
+                        inf.Humo = data.alerta_humo;
+                        inf.Calor = data.alerta_calor;
+                        inf.Temperatura = data.temperatura;
+                        inf.Ubicacion = data.ubicacion;
 
-                    lista.Add(inf);
+                        lista.Add(inf);
+                    }
+                    dataHistorial.DataSource = lista; //Remover Id de la lista
+                    //dataHistorial.Columns[""].Visible = false;
+                    dataHistorial.Columns["id"].Visible = false;
+                    dataHistorial.Columns["Codigo"].Visible = false;
+                    dataHistorial.Columns["Ubicacion"].Visible = false;
+                    dataHistorial.Columns["Fuego"].Visible = true;
+                    dataHistorial.Columns["Fuego"].Width = 55;
+                    dataHistorial.Columns["Humo"].Visible = true;
+                    dataHistorial.Columns["Humo"].Width = 55;
+                    dataHistorial.Columns["Calor"].Visible = true;
+                    dataHistorial.Columns["Calor"].Width = 55;
+                    dataHistorial.Columns["Temperatura"].Visible = false;
+                    dataHistorial.Columns["Creacion"].Visible = true;
+                    dataHistorial.Columns["Creacion"].Width = 140;
+                    dataHistorial.Columns["Respuesta"].Visible = true;
+                    dataHistorial.Columns["Respuesta"].Width = 140;
                 }
-                dataHistorial.DataSource = lista; //Remover Id de la lista
-                dataHistorial.Columns["id"].Visible = false;
-                dataHistorial.Columns["Fuego"].Visible = false;
-                dataHistorial.Columns["Humo"].Visible = false;
-                dataHistorial.Columns["Calor"].Visible = false;
-                dataHistorial.Columns["Temperatura"].Visible = false;
-                dataHistorial.Columns["id"].Visible = false;
-                dataHistorial.Columns["Respuesta"].Visible = false;
+                else
+                {
+                    dataHistorial.DataSource = null;
+                }
             }
-            else
+            catch(Exception error)
             {
-                dataHistorial.DataSource = null;
+                //MessageBox.Show(error.Message);
             }
+            
         }
 
         private async void dataHistorial_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow selectedRow = dataHistorial.Rows[e.RowIndex];
-
-            int idHistory = (int)Convert.ToInt64(selectedRow.Cells[0].Value.ToString());
-            string apiEndPoint = "Alertas/Id/" + idHistory + "";
-            string history = await GetHttp(apiEndPoint);
-            List<AlertasModel> historyDetails = JsonConvert.DeserializeObject<List<AlertasModel>>(history);
-
-            foreach (AlertasModel data in historyDetails)
+            try
             {
-                lblHistDispositivo.Text = data.codigo;
-                lblHistUbicacion.Text = data.ubicacion;
-                lblHistTemperatura.Text = Convert.ToString(data.temperatura);
-                lblHistFecha.Text = Convert.ToString(data.fecha_creacion);
-                lblHistRespuesta.Text = Convert.ToString(data.fecha_respuesta);
 
-                if (data.alerta_fuego == true)
+                DataGridViewRow selectedRow = dataHistorial.Rows[e.RowIndex];
+
+                int idHistory = (int)Convert.ToInt64(selectedRow.Cells[0].Value.ToString());
+                string apiEndPoint = "Alertas/Id/" + idHistory + "";
+                string history = await GetHttp(apiEndPoint);
+                List<AlertasModel> historyDetails = JsonConvert.DeserializeObject<List<AlertasModel>>(history);
+
+                foreach (AlertasModel data in historyDetails)
                 {
-                    pctminifuego.Image = Image.FromFile(mediaFolder + @"\fuego.png");
+                    lblHistDispositivo.Text = data.codigo;
+                    lblHistUbicacion.Text = data.ubicacion;
+                    lblHistTemperatura.Text = Convert.ToString(data.temperatura);
+                    lblHistFecha.Text = Convert.ToString(data.fecha_creacion);
+                    lblHistRespuesta.Text = Convert.ToString(data.fecha_respuesta);
+
+                    if (data.alerta_fuego == true)
+                    {
+                        pctminifuego.Image = Image.FromFile(mediaFolder + @"\fuego.png");
+                    }
+                    else
+                    {
+                        pctminifuego.Image = null;
+                    }
+                    if (data.alerta_humo == true)
+                    {
+                        pctminihumo.Image = Image.FromFile(mediaFolder + @"\humo.png");
+                    }
+                    else
+                    {
+                        pctminihumo.Image = null;
+                    }
+                    if (data.alerta_calor == true)
+                    {
+                        pctminicalor.Image = Image.FromFile(mediaFolder + @"\calor.png");
+                    }
+                    else
+                    {
+                        pctminicalor.Image = null;
+                    }
                 }
-                else
-                {
-                    pctminifuego.Image = null;
-                }
-                if (data.alerta_humo == true)
-                {
-                    pctminihumo.Image = Image.FromFile(mediaFolder + @"\humo.png");
-                }
-                else
-                {
-                    pctminihumo.Image = null;
-                }
-                if (data.alerta_calor == true)
-                {
-                    pctminicalor.Image = Image.FromFile(mediaFolder + @"\calor.png");
-                }
-                else
-                {
-                    pctminicalor.Image = null;
-                }
+            }
+            catch(Exception error)
+            {
+                MessageBox.Show(error.Message);
             }
         }
 
@@ -328,6 +306,7 @@ namespace FireAlarmClient
             {
                 modificar = true;
                 lblAccion.Text = "Actualizar Dispositivo"; //Dispositivos/Actualizar para el update
+                btnCrear.Text = "Actualizar Dispositivo";
                 deviceId = (int)Convert.ToInt64(selectedRow.Cells[0].Value.ToString());
                 txtCodgo.Text = selectedRow.Cells[1].Value.ToString();
                 var inf = selectedRow.Cells[2].Value.ToString();
@@ -347,10 +326,13 @@ namespace FireAlarmClient
         {
             modificar = false;
             lblAccion.Text = "Crear Dispositivo";
+            btnCrear.Text = "Crear Dispositivo";
             deviceId = 0;
             txtCodgo.Text = "";
             cBoxUbicacion.SelectedIndex = 0;
             checkBoxActivo.Checked = false;
+            dataDispositivos.DataSource = null;
+            dataHistorial.DataSource = null;
         }
 
         private async void btnCrear_Click(object sender, EventArgs e)
@@ -393,14 +375,18 @@ namespace FireAlarmClient
             btnBuscarDispositivos_Click(sender, e);
         }
 
-
+        private void btnAdmUbicaciones_Click(object sender, EventArgs e)
+        {
+            AdmUbicaciones form = new AdmUbicaciones();
+            form.Show();
+        }
 
         static async Task<Uri> TurnOffAlert(ApagarAlerta apagarAlerta)
         {
             try
             {
                 HttpResponseMessage response = await client.PostAsJsonAsync(
-                    "https://localhost:5001/api/Alertas/Apagar", apagarAlerta);
+                "http://192.168.1.60:5094/api/Alertas/Apagar", apagarAlerta);
                 response.EnsureSuccessStatusCode();
 
                 // return URI of the created resource.
@@ -417,7 +403,7 @@ namespace FireAlarmClient
             try
             {
                 HttpResponseMessage response = await client.PostAsJsonAsync(
-                    "https://localhost:5001/api/Dispositivos/Actualizar", actDispositivos);
+                "http://192.168.1.60:5094/api/Dispositivos/Actualizar", actDispositivos);
                 response.EnsureSuccessStatusCode();
 
                 // return URI of the created resource.
@@ -434,7 +420,7 @@ namespace FireAlarmClient
             try
             {
                 HttpResponseMessage response = await client.PostAsJsonAsync(
-                    "https://localhost:5001/api/Dispositivos", crearDispositivos);
+                    "http://192.168.1.60:5094/api/Dispositivos", crearDispositivos);
                 response.EnsureSuccessStatusCode();
 
                 // return URI of the created resource.
@@ -445,5 +431,58 @@ namespace FireAlarmClient
                 return null;
             }
         }
+
+        public async Task<string> GetHttp(string endpoint)
+        {
+            try
+            {
+                WebRequest oRequest = WebRequest.Create(urlServidor + endpoint);
+                WebResponse oResponse = oRequest.GetResponse();
+                StreamReader sr = new StreamReader(oResponse.GetResponseStream());
+                return await sr.ReadToEndAsync();
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        public async Task<string> DatosInterfaz(bool Fuego, bool Humo, bool Calor, string Area, string Dispositivo, int Temperatura)
+        {
+            lblArea2.Text = Area;
+            lblDispositivo2.Text = Dispositivo;
+            lblTemperatura.Text = Temperatura.ToString();
+            if (Fuego == true)
+            {
+                pctFuego.Image = Image.FromFile(mediaFolder + @"\fuego.png");
+                EstadoAlerta = true;
+            }
+            else
+            {
+                pctFuego.Image = null;
+            }
+            if (Humo == true)
+            {
+                pctHumo.Image = Image.FromFile(mediaFolder + @"\humo.png");
+                EstadoAlerta = true;
+            }
+            else
+            {
+                pctHumo.Image = null;
+            }
+            if (Calor == true)
+            {
+                pctCalor.Image = Image.FromFile(mediaFolder + @"\calor.png");
+                EstadoAlerta = true;
+            }
+            else
+            {
+                pctCalor.Image = null;
+            }
+            return null;
+
+        }
+
     }
 }
